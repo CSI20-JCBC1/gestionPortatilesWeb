@@ -1,0 +1,23 @@
+package edu.dws.gestionPortatilesWeb.aplicacion.dto;
+
+import java.util.Calendar;
+
+import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
+
+public class ADtoServicioImpl implements ADtoServicio {
+
+	@Override
+	public AlumnosDTO AAlumnosDTO(String md_uuid, Calendar md_date, String nombre_alumno, String apellidos_alumno,
+			String num_telefono, Portatiles portatil) {
+		AlumnosDTO alumnoDTO = new AlumnosDTO(md_uuid, md_date, nombre_alumno, apellidos_alumno, num_telefono, portatil);
+
+		return alumnoDTO;
+	}
+
+	@Override
+	public PortatilesDTO APortatilesDTO(String modelo, String marca) {
+		PortatilesDTO portatilDTO = new PortatilesDTO( modelo, marca);
+		return portatilDTO;
+	}
+
+}
