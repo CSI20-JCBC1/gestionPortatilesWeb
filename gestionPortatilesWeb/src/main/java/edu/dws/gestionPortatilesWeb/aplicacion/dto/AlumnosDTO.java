@@ -104,7 +104,7 @@ public class AlumnosDTO {
 		//ToString
 		@Override
 		public String toString() {
-			return "Alumno: " + nombre + " " +apellidos +" Portatil: " + portatil.getMarca() +" modelo " + portatil.getModelo();
+			return "Alumno (" + nombre + " " +apellidos +") Portatil (" + portatil.getMarca() +" " + portatil.getModelo()+")";
 		}
 		
 		

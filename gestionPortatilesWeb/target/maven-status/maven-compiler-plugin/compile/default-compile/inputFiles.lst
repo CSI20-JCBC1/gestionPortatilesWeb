@@ -1,12 +1,14 @@
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\aplicacion\dto\AlumnosDTO.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\aplicacion\dto\AdaoServicioImpl.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\EnrutadorWebClase.java
+C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\web\controladores\ControladorPortatilPorIdAlumno.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\aplicacion\dto\ADtoServicio.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\web\controladores\ControladorInsertAlm.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\web\WebConfiguracionContexto.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\aplicacion\dal\AlumnosRepo.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\aplicacion\dto\ADaoServicio.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\aplicacion\dto\PortatilesDTO.java
+C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\web\controladores\ControladorDeleteAlumno.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\aplicacion\dal\PortatilesRepo.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\aplicacion\AplicacionConfiguracionContexto.java
 C:\Users\Juanca\git\gestionPortatilesWeb\gestionPortatilesWeb\src\main\java\edu\dws\gestionPortatilesWeb\aplicacion\dal\Alumnos.java

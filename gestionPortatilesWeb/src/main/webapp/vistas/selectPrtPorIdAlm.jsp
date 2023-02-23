@@ -8,9 +8,9 @@
     <h1>Lista de alumnos</h1>
     
     <c:forEach items="${miModelo.listaAlumnosDTO}" var="alumno">
-      Id: <c:out value="${alumno.id_alumno}"/> 
-      Nombre: <c:out value="${alumno.nombre}"/> 
-      Apellidos: <c:out value="${alumno.apellidos}"/>  
+      Id (<c:out value="${alumno.id_alumno}"/>) 
+      Nombre (<c:out value="${alumno.nombre}"/>) 
+      Apellidos (<c:out value="${alumno.apellidos}"/>)  
       <br><br>
     </c:forEach>
     
@@ -23,11 +23,11 @@
                 </tr>
                 
                 <tr>
-                    <td><input type="submit" value="Borrar"/></td>
+                    <td><input type="submit" value="Buscar"/></td>
                 </tr>
             </table>
         </form:form> 
-        <p>Portatil ==> <c:out value="${miModelo.mensaje}"/></p>  
+        <p><c:out value="${miModelo.mensaje}"/></p>  
     
 	
  </body>
