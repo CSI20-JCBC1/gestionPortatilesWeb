@@ -1,7 +1,10 @@
 package edu.dws.gestionPortatilesWeb.aplicacion.dto;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
+import edu.dws.gestionPortatilesWeb.aplicacion.dal.Alumnos;
 import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
 
 public class ADtoServicioImpl implements ADtoServicio {
@@ -18,6 +21,16 @@ public class ADtoServicioImpl implements ADtoServicio {
 	public PortatilesDTO APortatilesDTO(String modelo, String marca) {
 		PortatilesDTO portatilDTO = new PortatilesDTO( modelo, marca);
 		return portatilDTO;
+	}
+
+	@Override
+	public List<AlumnosDTO> AListaAlumnosDTO(List<Alumnos> listaAlumnos) {
+		List<AlumnosDTO> listaAlumnosDTO=new ArrayList<AlumnosDTO>();
+		for(Alumnos alumno:listaAlumnos) {
+			AlumnosDTO alumnoDTO = new AlumnosDTO(alumno.getMd_uuid(), alumno.getMd_date(), alumno.getNombre(), alumno.getApellidos(), alumno.getNum_telefono(), alumno.getPortatiles());
+			listaAlumnosDTO.add(alumnoDTO);
+		}
+		return listaAlumnosDTO;
 	}
 
 }

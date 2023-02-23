@@ -1,5 +1,7 @@
 package edu.dws.gestionPortatilesWeb.aplicacion.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,17 @@ public class Consultas {
 	@Transactional
 	public void insertarUnPortatil(Portatiles portatil) {
 		prt.save(portatil);
+	}
+	
+	@Transactional
+	public Portatiles selectUnPortatil(Integer idPortatil) {
+		Portatiles portatil=prt.findById(idPortatil).orElse(null);
+		return portatil;
+	}
+	
+	@Transactional
+	public List<Alumnos> getTodosAlumnos(){
+		return (List<Alumnos>) alm.findAll();
 	}
 	
 	

@@ -1,6 +1,7 @@
 package edu.dws.gestionPortatilesWeb.aplicacion.dto;
 
 import java.util.Calendar;
+import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
@@ -11,8 +12,8 @@ public class AlumnosDTO {
 	
 	//Campos
 		private Integer id_alumno;
-		private String md_uuid;
-		private Calendar md_date;
+		private String md_uuid=UUID.randomUUID().toString();
+		private Calendar md_date=Calendar.getInstance();
 		private String nombre;
 		private String apellidos;
 		private String num_telefono;
@@ -75,6 +76,15 @@ public class AlumnosDTO {
 			this.portatil = portatil;
 		}
 
+		public AlumnosDTO(String md_uuid, Calendar md_date, String nombre, String apellidos, String num_telefono) {
+			super();
+			this.md_uuid = md_uuid;
+			this.md_date = md_date;
+			this.nombre = nombre;
+			this.apellidos = apellidos;
+			this.num_telefono = num_telefono;
+			
+		}
 		public AlumnosDTO() {
 			super();
 		}
@@ -82,9 +92,7 @@ public class AlumnosDTO {
 		//ToString
 		@Override
 		public String toString() {
-			return "GestionAlumnos [id_alumno=" + id_alumno + ", md_uuid=" + md_uuid + ", md_date=" + md_date + ", nombre="
-					+ nombre + ", apellidos=" + apellidos + ", num_telefono=" + num_telefono + ", portatil=" + portatil
-					+ "]";
+			return "Alumno: " + nombre + " " +apellidos +" Portatil: " + portatil.getMarca() +" modelo " + portatil.getModelo();
 		}
 		
 		

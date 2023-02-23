@@ -8,7 +8,7 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Alumnos;
 public class PortatilesDTO {
 	
 	private Integer id_ordenador;
-	private String md_uuid = UUID.randomUUID().toString();;
+	private String md_uuid = UUID.randomUUID().toString();
 	private Calendar md_date=Calendar.getInstance();
 	private String modelo;
 	private String marca;

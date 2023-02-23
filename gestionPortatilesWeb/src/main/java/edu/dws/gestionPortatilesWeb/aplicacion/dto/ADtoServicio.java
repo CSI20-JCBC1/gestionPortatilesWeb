@@ -1,7 +1,9 @@
 package edu.dws.gestionPortatilesWeb.aplicacion.dto;
 
 import java.util.Calendar;
+import java.util.List;
 
+import edu.dws.gestionPortatilesWeb.aplicacion.dal.Alumnos;
 import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
 
 public interface ADtoServicio {
@@ -10,6 +12,8 @@ public interface ADtoServicio {
 			String apellidos_alumno, String num_telefono, Portatiles portatil);
 	
 	public PortatilesDTO APortatilesDTO(String modelo, String marca);
+	
+	public List<AlumnosDTO> AListaAlumnosDTO(List<Alumnos> listaAlumnos);
 
 
 }
