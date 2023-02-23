@@ -76,6 +76,18 @@ public class AlumnosDTO {
 			this.portatil = portatil;
 		}
 
+		public AlumnosDTO(Integer id_alumno,String md_uuid, Calendar md_date, String nombre, String apellidos, String num_telefono,
+				Portatiles portatil) {
+			super();
+			this.id_alumno=id_alumno;
+			this.md_uuid = md_uuid;
+			this.md_date = md_date;
+			this.nombre = nombre;
+			this.apellidos = apellidos;
+			this.num_telefono = num_telefono;
+			this.portatil = portatil;
+		}
+		
 		public AlumnosDTO(String md_uuid, Calendar md_date, String nombre, String apellidos, String num_telefono) {
 			super();
 			this.md_uuid = md_uuid;

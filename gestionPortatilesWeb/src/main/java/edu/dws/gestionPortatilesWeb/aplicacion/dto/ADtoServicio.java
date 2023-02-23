@@ -14,6 +14,8 @@ public interface ADtoServicio {
 	public PortatilesDTO APortatilesDTO(String modelo, String marca);
 	
 	public List<AlumnosDTO> AListaAlumnosDTO(List<Alumnos> listaAlumnos);
+	
+	public AlumnosDTO FormAlumnoAAlumnoDTO(FormAlmDTO alumnoV, Portatiles portatil);
 
 
 }

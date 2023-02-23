@@ -23,14 +23,21 @@ public class ADtoServicioImpl implements ADtoServicio {
 		return portatilDTO;
 	}
 
+	
 	@Override
 	public List<AlumnosDTO> AListaAlumnosDTO(List<Alumnos> listaAlumnos) {
 		List<AlumnosDTO> listaAlumnosDTO=new ArrayList<AlumnosDTO>();
 		for(Alumnos alumno:listaAlumnos) {
-			AlumnosDTO alumnoDTO = new AlumnosDTO(alumno.getMd_uuid(), alumno.getMd_date(), alumno.getNombre(), alumno.getApellidos(), alumno.getNum_telefono(), alumno.getPortatiles());
+			AlumnosDTO alumnoDTO = new AlumnosDTO(alumno.getId_alumno(), alumno.getMd_uuid(), alumno.getMd_date(), alumno.getNombre(), alumno.getApellidos(), alumno.getNum_telefono(), alumno.getPortatiles());
 			listaAlumnosDTO.add(alumnoDTO);
 		}
 		return listaAlumnosDTO;
+	}
+
+	@Override
+	public AlumnosDTO FormAlumnoAAlumnoDTO(FormAlmDTO alumnoV, Portatiles portatil) {
+		AlumnosDTO alumnoDTO=new AlumnosDTO(alumnoV.getMd_uuid(), alumnoV.getMd_date(),alumnoV.getNombre(), alumnoV.getApellidos(), alumnoV.getNum_telefono(), portatil);
+		return alumnoDTO;
 	}
 
 }

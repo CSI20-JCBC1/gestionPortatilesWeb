@@ -8,10 +8,13 @@
 <body>
 	<h1>APP Gestión Alumnos y portatiles</h1>
 	<p>Opciones</p>
-	<a href="<c:url value="navegacionFormularioPrt"/>">1) Insertar portatil</a>
+	1)<a href="<c:url value="navegacionFormularioAlm"/>"> Insertar alumno</a>
 	<br>
-	<a href="<c:url value="selectAlmConPrt"/>">2) Listar alumno con su portatil</a>
+	2)<a href="<c:url value="navegacionFormularioPrt"/>"> Insertar portatil</a>	
 	<br>
-	<a href="<c:url value="navegacionFormularioAlm"/>">3) Insertar alumno</a>
+	3)<a href="<c:url value="selectAlmConPrt"/>"> Listar alumno con su portatil</a>
+	<br>
+	4)<a href="<c:url value="borrarAlumno"/>"> Borrar Alumno</a>
+	
 </body>
 </html>

@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Nuevo Portatil</h1>
-    <form:form method="POST" action="guardarAlumno" modelAttribute="alumnoV" path="idPortatil">
+    <form:form method="POST" action="guardarAlumno" modelAttribute="alumnoV" >
              <table>
                 <tr>
                     <td><form:label path="nombre">Nombre</form:label></td>
@@ -21,7 +21,7 @@
                     <td><form:input path="num_telefono"/></td>
                 </tr>
                 <tr>
-                    <td><form:label type="hidden" path="idPortatil">Id del portatil que quiere </form:label></td>
+                    <td><form:label path="idPortatil">Id del portatil que quiere asignarle</form:label></td>
                     <td><form:input path="idPortatil"/></td>
                 </tr>
                 

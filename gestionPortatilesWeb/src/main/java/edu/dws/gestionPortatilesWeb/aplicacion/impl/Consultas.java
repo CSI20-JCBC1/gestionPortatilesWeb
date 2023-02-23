@@ -19,11 +19,23 @@ public class Consultas {
 	@Autowired
 	private PortatilesRepo prt;
 	
+	//Consultas para alumnos
 	@Transactional
 	public void insertarUnAlumno(Alumnos alumno) {
 		alm.save(alumno);
 	}
 	
+	@Transactional
+	public List<Alumnos> getTodosAlumnos(){
+		return (List<Alumnos>) alm.findAll();
+	}
+	
+	@Transactional
+	public void borrarAlumno(int id) {
+		alm.deleteById(id);
+	}
+	
+	//Consultas para los portatiles
 	@Transactional
 	public void insertarUnPortatil(Portatiles portatil) {
 		prt.save(portatil);
@@ -35,10 +47,7 @@ public class Consultas {
 		return portatil;
 	}
 	
-	@Transactional
-	public List<Alumnos> getTodosAlumnos(){
-		return (List<Alumnos>) alm.findAll();
-	}
+	
 	
 	
 }

@@ -9,6 +9,7 @@ public class AdaoServicioImpl implements ADaoServicio {
 	public Alumnos AlumnosDTOADAO(AlumnosDTO alumnoDTO) {
 		Alumnos alumno=new Alumnos();
 		if(alumnoDTO != null) {
+			alumno.setId_alumno(alumnoDTO.getId_alumno());
 			alumno.setMd_uuid(alumnoDTO.getMd_uuid());
 			alumno.setMd_date(alumnoDTO.getMd_date());
 			alumno.setNombre(alumnoDTO.getNombre());
