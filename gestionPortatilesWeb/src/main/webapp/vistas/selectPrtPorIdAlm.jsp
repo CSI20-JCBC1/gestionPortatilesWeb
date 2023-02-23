@@ -15,10 +15,10 @@
     </c:forEach>
     
     <form:form method="POST" 
-          action="borrarAlum" modelAttribute="alumnoV">
+          action="buscarPortatil" modelAttribute="alumnoV">
              <table>
                 <tr>
-                    <td><form:label path="id_alumno">Id de alumno a eliminar</form:label></td>
+                    <td><form:label path="id_alumno">Id de alumno para buscar su portatil</form:label></td>
                     <td><form:input path="id_alumno"/></td>
                 </tr>
                 
@@ -27,7 +27,7 @@
                 </tr>
             </table>
         </form:form> 
-        <p>Mensaje del controlador: <c:out value="${miModelo.mensaje}"/></p>  
+        <p>Portatil ==> <c:out value="${miModelo.mensaje}"/></p>  
     
 	
  </body>

@@ -63,6 +63,14 @@ public class PortatilesDTO {
 		this.marca = marca;
 	}
 	
+	public PortatilesDTO( String md_uuid, Calendar md_date,String modelo, String marca) {
+		super();
+		this.md_uuid = md_uuid;
+		this.md_date = md_date;
+		this.modelo = modelo;
+		this.marca = marca;
+	}
+	
 	public PortatilesDTO() {
 		super();
 	}
@@ -71,8 +79,7 @@ public class PortatilesDTO {
 	//ToString
 	@Override
 	public String toString() {
-		return "GestionOrdenadores [md_uuid=" + md_uuid + ", md_date=" + md_date.getTime()
-				+ ", modelo=" + modelo + ", marca=" + marca + ", alumno=" + alumno + "]";
+		return "Marca: " + marca + " Modelo: " + modelo;
 	}
 	
 

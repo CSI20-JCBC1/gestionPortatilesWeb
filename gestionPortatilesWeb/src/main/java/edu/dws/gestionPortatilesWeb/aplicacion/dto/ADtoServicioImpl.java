@@ -23,6 +23,12 @@ public class ADtoServicioImpl implements ADtoServicio {
 		return portatilDTO;
 	}
 
+	@Override
+	public PortatilesDTO APortatilesDTO(String md_uuid, Calendar md_date,String modelo, String marca) {
+		PortatilesDTO portatilDTO = new PortatilesDTO( modelo, marca);
+		return portatilDTO;
+	}
+
 	
 	@Override
 	public List<AlumnosDTO> AListaAlumnosDTO(List<Alumnos> listaAlumnos) {

@@ -14,7 +14,9 @@
 	<br>
 	3)<a href="<c:url value="selectAlmConPrt"/>"> Listar alumno con su portatil</a>
 	<br>
-	4)<a href="<c:url value="borrarAlumno"/>"> Borrar Alumno</a>
+	4)<a href="<c:url value="borrarAlumno"/>"> Borrar alumno</a>
+	<br>
+	5)<a href="<c:url value="selectPrtPorIdAlm"/>"> Buscar portatil por Id alumno</a>
 	
 </body>
 </html>

@@ -16,6 +16,8 @@ public interface ADtoServicio {
 	public List<AlumnosDTO> AListaAlumnosDTO(List<Alumnos> listaAlumnos);
 	
 	public AlumnosDTO FormAlumnoAAlumnoDTO(FormAlmDTO alumnoV, Portatiles portatil);
+	
+	public PortatilesDTO APortatilesDTO(String md_uuid, Calendar md_date,String modelo, String marca);
 
 
 }

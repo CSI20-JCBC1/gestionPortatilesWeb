@@ -35,6 +35,12 @@ public class Consultas {
 		alm.deleteById(id);
 	}
 	
+	@Transactional
+	public Alumnos selectUnAlumno(Integer idAlumno) {
+		Alumnos alumno=alm.findById(idAlumno).orElse(null);
+		return alumno;
+	}
+	
 	//Consultas para los portatiles
 	@Transactional
 	public void insertarUnPortatil(Portatiles portatil) {
