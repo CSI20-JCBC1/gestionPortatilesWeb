@@ -8,7 +8,7 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
 
 public interface ADtoServicio {
 	
-	public AlumnosDTO AAlumnosDTO(String md_uuid, Calendar md_date, String nombre_alumno,
+	public AlumnosDTO AAlumnosDTO(Integer id_alumno,String md_uuid, Calendar md_date, String nombre_alumno,
 			String apellidos_alumno, String num_telefono, Portatiles portatil);
 	
 	public PortatilesDTO APortatilesDTO(String modelo, String marca);
@@ -17,7 +17,7 @@ public interface ADtoServicio {
 	
 	public AlumnosDTO FormAlumnoAAlumnoDTO(FormAlmDTO alumnoV, Portatiles portatil);
 	
-	public PortatilesDTO APortatilesDTO(String md_uuid, Calendar md_date,String modelo, String marca);
-
-
+	public PortatilesDTO APortatilesDTO(String md_uuid, Calendar md_date,String modelo, String marca, Alumnos alumno);
+	
+	public List<PortatilesDTO> AListaPortatilesDTO(List<Portatiles> listaPortatiles) ;
 }

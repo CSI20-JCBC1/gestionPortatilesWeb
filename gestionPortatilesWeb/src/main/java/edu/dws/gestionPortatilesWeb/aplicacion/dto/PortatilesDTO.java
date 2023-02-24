@@ -12,7 +12,6 @@ public class PortatilesDTO {
 	private Calendar md_date=Calendar.getInstance();
 	private String modelo;
 	private String marca;
-
 	Alumnos alumno;
 	
 	//Getters & Setters
@@ -70,12 +69,28 @@ public class PortatilesDTO {
 		this.modelo = modelo;
 		this.marca = marca;
 	}
+	public PortatilesDTO( String md_uuid, Calendar md_date,String modelo, String marca, Alumnos alumno) {
+		super();
+		this.md_uuid = md_uuid;
+		this.md_date = md_date;
+		this.modelo = modelo;
+		this.marca = marca;
+		this.alumno=alumno;
+	}
 	
 	public PortatilesDTO() {
 		super();
 	}
 	
-	
+	public PortatilesDTO(Integer id_ordenador, String md_uuid, Calendar md_date,String modelo, String marca, Alumnos alumno) {
+		super();
+		this.id_ordenador=id_ordenador;
+		this.md_uuid = md_uuid;
+		this.md_date = md_date;
+		this.modelo = modelo;
+		this.marca = marca;
+		this.alumno=alumno;
+	}
 	//ToString
 	@Override
 	public String toString() {

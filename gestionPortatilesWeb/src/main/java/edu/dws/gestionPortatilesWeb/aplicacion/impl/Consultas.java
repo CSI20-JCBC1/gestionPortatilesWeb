@@ -53,6 +53,10 @@ public class Consultas {
 		return portatil;
 	}
 	
+	@Transactional
+	public List<Portatiles> getTodosPortatiles(){
+		return (List<Portatiles>) prt.findAll();
+	}
 	
 	
 	

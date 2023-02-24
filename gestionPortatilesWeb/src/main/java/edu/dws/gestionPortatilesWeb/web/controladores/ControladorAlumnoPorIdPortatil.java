@@ -26,49 +26,57 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dto.PortatilesDTO;
 import edu.dws.gestionPortatilesWeb.aplicacion.impl.Consultas;
 
 @Controller
-public class ControladorPortatilPorIdAlumno {
+public class ControladorAlumnoPorIdPortatil {
 
 	@Autowired
 	Consultas consulta = new Consultas();
 
-	List<Alumnos> listaAlumnos = new ArrayList<Alumnos>();
+	List<Portatiles> listaPortatiles = new ArrayList<Portatiles>();
 	Map<String, Object> miModelo = new HashMap<String, Object>();
 	ADaoServicio aDao = new AdaoServicioImpl();
 	ADtoServicio aDto = new ADtoServicioImpl();
-	List<AlumnosDTO> listaAlumnosDTO = new ArrayList<AlumnosDTO>();
-	Portatiles portatil = new Portatiles();
-	AlumnosDTO alumnoDTO = new AlumnosDTO();
+	List<PortatilesDTO> listaPortatilesDTO = new ArrayList<PortatilesDTO>();
+	List<PortatilesDTO> listaPortatilesDTO2 = new ArrayList<PortatilesDTO>();
 	Alumnos alumno = new Alumnos();
+	PortatilesDTO portatilDTO = new PortatilesDTO();
+	Portatiles portatil = new Portatiles();
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
-	@RequestMapping(value = "/navegacionFormularioPortatilPorIdAlumno")
+	@RequestMapping(value = "/navegacionFormularioAlumnoPorIdPortatil")
 	public ModelAndView navegacionFormulario(Model modelo) {
-		listaAlumnos = consulta.getTodosAlumnos();
-		listaAlumnosDTO = aDto.AListaAlumnosDTO(listaAlumnos);
-		miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
-		AlumnosDTO alumnoDTO = new AlumnosDTO();
-		modelo.addAttribute("alumnoV", alumnoDTO);
-		return new ModelAndView("selectPrtPorIdAlm", "miModelo", miModelo);
+		listaPortatiles = consulta.getTodosPortatiles();
+		listaPortatilesDTO = aDto.AListaPortatilesDTO(listaPortatiles);
+		for (PortatilesDTO prt : listaPortatilesDTO) {
+			if (prt.getAlumno() != null)
+				listaPortatilesDTO2.add(prt);
+
+		}
+		miModelo.put("listaPortatilesDTO2", listaPortatilesDTO2);
+		PortatilesDTO portatilDTO = new PortatilesDTO();
+		modelo.addAttribute("portatilV", portatilDTO);
+		return new ModelAndView("selectAlmPorIdPrt", "miModelo", miModelo);
 
 	}
 
-	@RequestMapping(value = "/buscarPortatil", method = RequestMethod.POST)
-	public ModelAndView guardarAlumno(@ModelAttribute("alumnoV") AlumnosDTO alumnoV) {
+	@RequestMapping(value = "/buscarAlumno", method = RequestMethod.POST)
+	public ModelAndView guardarAlumno(@ModelAttribute("portatilV") PortatilesDTO portatilV) {
 
-		alumno = consulta.selectUnAlumno(alumnoV.getId_alumno());
+		
+			portatil = consulta.selectUnPortatil(portatilV.getId_ordenador());
 
-		portatil = consulta.selectUnPortatil(alumno.getPortatiles().getId_ordenador());
+			alumno = consulta.selectUnAlumno(portatil.getAlumno().getId_alumno());
 
-		PortatilesDTO portatilDTO = aDto.APortatilesDTO(portatil.getMd_uuid(), portatil.getMd_date(),
-				portatil.getMarca(), portatil.getModelo(), portatil.getAlumno());
+			AlumnosDTO alumnoDTO = aDto.AAlumnosDTO(alumno.getId_alumno(), alumno.getMd_uuid(), alumno.getMd_date(),
+					alumno.getNombre(), alumno.getApellidos(), alumno.getNum_telefono(), alumno.getPortatiles());
 
-		if (portatilDTO == null)
-			miModelo.put("mensaje", "No hay portatiles que mostrar");
-		else
-			miModelo.put("mensaje", portatilDTO.toString());
 
-		return new ModelAndView("selectPrtPorIdAlm", "miModelo", miModelo);
+			miModelo.put("mensaje", alumnoDTO.toString());
+		
+
+		
+
+		return new ModelAndView("selectAlmPorIdPrt", "miModelo", miModelo);
 	}
 
 }

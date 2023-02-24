@@ -57,6 +57,10 @@ public class ControladorDeleteAlumno {
 		consulta.borrarAlumno(alumnoV.getId_alumno());
 		
 		miModelo.put("mensaje", "Alumno Borrado");
+		
+		listaAlumnos=consulta.getTodosAlumnos();		
+		listaAlumnosDTO=aDto.AListaAlumnosDTO(listaAlumnos);		
+		miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
 
 		return new ModelAndView("borrarAlumno", "miModelo", miModelo);
 	}

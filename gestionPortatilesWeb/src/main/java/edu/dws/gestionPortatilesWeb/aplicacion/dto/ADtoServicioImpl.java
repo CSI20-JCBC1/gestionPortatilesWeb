@@ -10,9 +10,9 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
 public class ADtoServicioImpl implements ADtoServicio {
 
 	@Override
-	public AlumnosDTO AAlumnosDTO(String md_uuid, Calendar md_date, String nombre_alumno, String apellidos_alumno,
+	public AlumnosDTO AAlumnosDTO(Integer id_alumno,String md_uuid, Calendar md_date, String nombre_alumno, String apellidos_alumno,
 			String num_telefono, Portatiles portatil) {
-		AlumnosDTO alumnoDTO = new AlumnosDTO(md_uuid, md_date, nombre_alumno, apellidos_alumno, num_telefono, portatil);
+		AlumnosDTO alumnoDTO = new AlumnosDTO(id_alumno,md_uuid, md_date, nombre_alumno, apellidos_alumno, num_telefono, portatil);
 
 		return alumnoDTO;
 	}
@@ -24,9 +24,19 @@ public class ADtoServicioImpl implements ADtoServicio {
 	}
 
 	@Override
-	public PortatilesDTO APortatilesDTO(String md_uuid, Calendar md_date,String modelo, String marca) {
-		PortatilesDTO portatilDTO = new PortatilesDTO( modelo, marca);
+	public PortatilesDTO APortatilesDTO(String md_uuid, Calendar md_date,String modelo, String marca, Alumnos alumno) {
+		PortatilesDTO portatilDTO = new PortatilesDTO( md_uuid,  md_date,modelo ,  marca,  alumno);
 		return portatilDTO;
+	}
+	
+	@Override
+	public List<PortatilesDTO> AListaPortatilesDTO(List<Portatiles> listaPortatiles) {
+		List<PortatilesDTO> listaPortatilesDTO=new ArrayList<PortatilesDTO>();
+		for(Portatiles portatil:listaPortatiles) {
+			PortatilesDTO portatilDTO = new PortatilesDTO(portatil.getId_ordenador(), portatil.getMd_uuid(), portatil.getMd_date(), portatil.getMarca(), portatil.getModelo(), portatil.getAlumno());
+			listaPortatilesDTO.add(portatilDTO);
+		}
+		return listaPortatilesDTO;
 	}
 
 	

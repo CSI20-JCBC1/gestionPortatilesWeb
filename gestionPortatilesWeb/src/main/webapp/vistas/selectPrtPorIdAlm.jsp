@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
   <head>
-  <title>BorrarAlumnos</title>
+  <title>SeleccionarPortatil</title>
   </head>
   <body>
     <h1>Lista de alumnos</h1>
@@ -18,9 +18,14 @@
           action="buscarPortatil" modelAttribute="alumnoV">
              <table>
                 <tr>
-                    <td><form:label path="id_alumno">Id de alumno para buscar su portatil</form:label></td>
-                    <td><form:input path="id_alumno"/></td>
-                </tr>
+				<p>Introduce el id del alumno para mostrar su portatil</p>
+				<select name="id_alumno">
+
+					<c:forEach items="${miModelo.listaAlumnosDTO}" var="alumno">
+						<option><c:out value="${alumno.id_alumno}" /></option>
+					</c:forEach>
+				</select>
+			</tr>
                 
                 <tr>
                     <td><input type="submit" value="Buscar"/></td>

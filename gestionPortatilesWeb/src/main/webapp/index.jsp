@@ -17,6 +17,8 @@
 	4)<a href="<c:url value="borrarAlumno"/>"> Borrar alumno</a>
 	<br>
 	5)<a href="<c:url value="navegacionFormularioPortatilPorIdAlumno"/>"> Buscar portatil por Id alumno</a>
+	<br>
+	6)<a href="<c:url value="navegacionFormularioAlumnoPorIdPortatil"/>"> Buscar alumno por Id portatil</a>
 	
 </body>
 </html>
