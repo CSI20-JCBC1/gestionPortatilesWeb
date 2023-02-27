@@ -4,11 +4,11 @@
 <head>
 <title>BorrarAlumnos</title>
 <script language="JavaScript">
-function pregunta(){
-    if (confirm('¿Estas seguro de borrar este usuario?')){
-       document.tuformulario.submit()
-    }
-}
+	function pregunta() {
+		if (confirm('¿Estas seguro de borrar este usuario?')) {
+			document.insertAlm.submit()
+		}
+	}
 </script>
 </head>
 <body>
@@ -22,7 +22,8 @@ function pregunta(){
 		<br>
 	</c:forEach>
 
-	<form:form method="POST" action="borrarAlum" modelAttribute="alumnoV">
+	<form:form name="insertAlm" method="POST" action="borrarAlum"
+		modelAttribute="alumnoV">
 		<table>
 			<tr>
 				<p>Introduce el id del alumno a eliminar</p>
@@ -43,6 +44,6 @@ function pregunta(){
 		<c:out value="${miModelo.mensaje}" />
 	</p>
 
-
+	<a href="<c:url value="../gestionPortatilesWeb"/>"> Volver al menu</a>
 </body>
 </html>

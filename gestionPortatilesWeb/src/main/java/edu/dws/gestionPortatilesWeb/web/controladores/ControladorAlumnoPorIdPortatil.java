@@ -69,6 +69,7 @@ public class ControladorAlumnoPorIdPortatil {
 
 		try {
 
+			
 			portatil = consulta.selectUnPortatil(portatilV.getId_ordenador());
 
 			alumno = consulta.selectUnAlumno(portatil.getAlumno().getId_alumno());

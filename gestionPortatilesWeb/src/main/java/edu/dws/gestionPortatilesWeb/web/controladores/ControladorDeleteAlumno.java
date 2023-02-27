@@ -57,15 +57,21 @@ public class ControladorDeleteAlumno {
 	public ModelAndView guardarAlumno(@ModelAttribute("alumnoV") AlumnosDTO alumnoV) {
 
 		try {
-			aDao.AlumnosDTOADAO(alumnoV);
+			if (alumnoV.getId_alumno()!=null) {
+				aDao.AlumnosDTOADAO(alumnoV);
 
-			consulta.borrarAlumno(alumnoV.getId_alumno());
+				consulta.borrarAlumno(alumnoV.getId_alumno());
 
-			miModelo.put("mensaje", "Alumno Borrado");
+				miModelo.put("mensaje", "Alumno Borrado");
 
-			listaAlumnos = consulta.getTodosAlumnos();
-			listaAlumnosDTO = aDto.AListaAlumnosDTO(listaAlumnos);
-			miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
+				listaAlumnos = consulta.getTodosAlumnos();
+				listaAlumnosDTO = aDto.AListaAlumnosDTO(listaAlumnos);
+				miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
+			}
+			else {
+				miModelo.put("mensaje", "El id no puede ser null");
+			}
+			
 			
 		} catch (Exception e) {
 			System.out.println(e);
