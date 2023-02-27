@@ -18,7 +18,7 @@
              <table>
              <tr>
 				IdPortatil
-				<select name="id_ordenador">
+				<select name="idPortatil">
 
 					<c:forEach items="${miModelo.listaPortatilesDTO2}" var="portatil">
 						<option><c:out value="${portatil.id_ordenador}" /></option>
