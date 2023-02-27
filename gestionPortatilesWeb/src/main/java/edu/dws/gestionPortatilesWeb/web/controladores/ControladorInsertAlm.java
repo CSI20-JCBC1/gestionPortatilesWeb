@@ -71,7 +71,7 @@ public class ControladorInsertAlm {
 		try {
 			if (alumnoV.getIdPortatil() == null||alumnoV.getNombre().isEmpty()||alumnoV.getApellidos().isEmpty()||alumnoV.getNum_telefono().isEmpty()) {
 
-				miModelo.put("mensaje", "Los campos no pueden ser nulos");
+				miModelo.put("mensaje", "Ningún campo puede ser nulo");
 				
 			} else {
 				

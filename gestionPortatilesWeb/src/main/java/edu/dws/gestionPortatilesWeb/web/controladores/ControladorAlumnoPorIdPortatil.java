@@ -68,7 +68,11 @@ public class ControladorAlumnoPorIdPortatil {
 	public ModelAndView guardarAlumno(@ModelAttribute("portatilV") PortatilesDTO portatilV) {
 
 		try {
-
+			
+			if(portatilV.getId_ordenador()==null) {
+				miModelo.put("mensaje", "No hay alumnos que mostrar, pues no existe ningun portatil asignado a un alumno.");
+			}
+			else {
 			
 			portatil = consulta.selectUnPortatil(portatilV.getId_ordenador());
 
@@ -77,7 +81,7 @@ public class ControladorAlumnoPorIdPortatil {
 			AlumnosDTO alumnoDTO = aDto.AAlumnosDTO(alumno.getId_alumno(), alumno.getMd_uuid(), alumno.getMd_date(),
 					alumno.getNombre(), alumno.getApellidos(), alumno.getNum_telefono(), alumno.getPortatiles());
 
-			miModelo.put("mensaje", alumnoDTO.toString());
+			miModelo.put("mensaje", alumnoDTO.toString());}
 
 		} catch (Exception e) {
 			System.out.println(e);

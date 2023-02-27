@@ -69,7 +69,7 @@ public class ControladorDeleteAlumno {
 				miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
 			}
 			else {
-				miModelo.put("mensaje", "El id no puede ser null");
+				miModelo.put("mensaje", "No existe ningún alumno");
 			}
 			
 			
