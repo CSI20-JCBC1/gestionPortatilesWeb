@@ -5,11 +5,28 @@
   <title>Formulario</title>
   </head>
   <body>
-    <h1>Nuevo Portatil</h1>
+  <h1>Lista de Portatiles</h1>
+    
+    <c:forEach items="${miModelo.listaPortatilesDTO2}" var="portatil">
+      Id (<c:out value="${portatil.id_ordenador}"/>) 
+      Modelo (<c:out value="${portatil.modelo}"/>) 
+      Marca (<c:out value="${portatil.marca}"/>)  
+      <br><br>
+    </c:forEach>
+    <h1>Nuevo Alumno</h1>
     <form:form method="POST" action="guardarAlumno" modelAttribute="alumnoV" >
              <table>
+             <tr>
+				IdPortatil
+				<select name="id_ordenador">
+
+					<c:forEach items="${miModelo.listaPortatilesDTO2}" var="portatil">
+						<option><c:out value="${portatil.id_ordenador}" /></option>
+					</c:forEach>
+				</select>
+			</tr>
                 <tr>
-                    <td><form:label path="nombre">Nombre</form:label></td>
+                     <td><form:label path="nombre">Nombre</form:label></td>
                     <td><form:input path="nombre"/></td>
                 </tr>
                 <tr>
@@ -20,11 +37,8 @@
                     <td><form:label path="num_telefono">Numero de teléfono</form:label></td>
                     <td><form:input path="num_telefono"/></td>
                 </tr>
-                <tr>
-                    <td><form:label path="idPortatil">Id del portatil que quiere asignarle</form:label></td>
-                    <td><form:input path="idPortatil"/></td>
-                </tr>
-                
+               
+ 
                 <tr>
                     <td><input type="submit" value="Guardar"/></td>
                 </tr>

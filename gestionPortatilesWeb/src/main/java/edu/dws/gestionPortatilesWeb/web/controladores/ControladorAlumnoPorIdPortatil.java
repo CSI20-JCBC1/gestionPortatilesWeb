@@ -36,7 +36,6 @@ public class ControladorAlumnoPorIdPortatil {
 	ADaoServicio aDao = new AdaoServicioImpl();
 	ADtoServicio aDto = new ADtoServicioImpl();
 	List<PortatilesDTO> listaPortatilesDTO = new ArrayList<PortatilesDTO>();
-	List<PortatilesDTO> listaPortatilesDTO2 = new ArrayList<PortatilesDTO>();
 	Alumnos alumno = new Alumnos();
 	PortatilesDTO portatilDTO = new PortatilesDTO();
 	Portatiles portatil = new Portatiles();
@@ -45,16 +44,22 @@ public class ControladorAlumnoPorIdPortatil {
 
 	@RequestMapping(value = "/navegacionFormularioAlumnoPorIdPortatil")
 	public ModelAndView navegacionFormulario(Model modelo) {
-		listaPortatiles = consulta.getTodosPortatiles();
-		listaPortatilesDTO = aDto.AListaPortatilesDTO(listaPortatiles);
-		for (PortatilesDTO prt : listaPortatilesDTO) {
-			if (prt.getAlumno() != null)
-				listaPortatilesDTO2.add(prt);
+		try {
+			listaPortatiles = consulta.getTodosPortatiles();
+			listaPortatilesDTO = aDto.AListaPortatilesDTO(listaPortatiles);
+			List<PortatilesDTO> listaPortatilesDTO2 = new ArrayList<PortatilesDTO>();
+			for (PortatilesDTO prt : listaPortatilesDTO) {
+				if (prt.getAlumno() != null)
+					listaPortatilesDTO2.add(prt);
 
+			}
+			miModelo.put("listaPortatilesDTO2", listaPortatilesDTO2);
+			PortatilesDTO portatilDTO = new PortatilesDTO();
+			modelo.addAttribute("portatilV", portatilDTO);
+
+		} catch (Exception e) {
+			System.out.println(e);
 		}
-		miModelo.put("listaPortatilesDTO2", listaPortatilesDTO2);
-		PortatilesDTO portatilDTO = new PortatilesDTO();
-		modelo.addAttribute("portatilV", portatilDTO);
 		return new ModelAndView("selectAlmPorIdPrt", "miModelo", miModelo);
 
 	}
@@ -62,7 +67,8 @@ public class ControladorAlumnoPorIdPortatil {
 	@RequestMapping(value = "/buscarAlumno", method = RequestMethod.POST)
 	public ModelAndView guardarAlumno(@ModelAttribute("portatilV") PortatilesDTO portatilV) {
 
-		
+		try {
+
 			portatil = consulta.selectUnPortatil(portatilV.getId_ordenador());
 
 			alumno = consulta.selectUnAlumno(portatil.getAlumno().getId_alumno());
@@ -70,12 +76,11 @@ public class ControladorAlumnoPorIdPortatil {
 			AlumnosDTO alumnoDTO = aDto.AAlumnosDTO(alumno.getId_alumno(), alumno.getMd_uuid(), alumno.getMd_date(),
 					alumno.getNombre(), alumno.getApellidos(), alumno.getNum_telefono(), alumno.getPortatiles());
 
-
 			miModelo.put("mensaje", alumnoDTO.toString());
-		
 
-		
-
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		return new ModelAndView("selectAlmPorIdPrt", "miModelo", miModelo);
 	}
 

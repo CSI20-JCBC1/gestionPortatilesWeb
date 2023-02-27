@@ -27,7 +27,7 @@ import edu.dws.gestionPortatilesWeb.aplicacion.impl.Consultas;
 
 @Controller
 public class ControladorDeleteAlumno {
-	
+
 	@Autowired
 	Consultas consulta = new Consultas();
 	List<Alumnos> listaAlumnos = new ArrayList<Alumnos>();
@@ -35,36 +35,43 @@ public class ControladorDeleteAlumno {
 	ADaoServicio aDao = new AdaoServicioImpl();
 	ADtoServicio aDto = new ADtoServicioImpl();
 	List<AlumnosDTO> listaAlumnosDTO = new ArrayList<AlumnosDTO>();
-	
+
 	protected final Log logger = LogFactory.getLog(getClass());
-	
+
 	@RequestMapping(value = "/borrarAlumno")
 	public ModelAndView navegacionFormulario(Model modelo) {
 
-		listaAlumnos=consulta.getTodosAlumnos();		
-		listaAlumnosDTO=aDto.AListaAlumnosDTO(listaAlumnos);		
-		miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
-		AlumnosDTO alumnoDTO = new AlumnosDTO();
-        modelo.addAttribute("alumnoV", alumnoDTO);
+		try {
+			listaAlumnos = consulta.getTodosAlumnos();
+			listaAlumnosDTO = aDto.AListaAlumnosDTO(listaAlumnos);
+			miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
+			AlumnosDTO alumnoDTO = new AlumnosDTO();
+			modelo.addAttribute("alumnoV", alumnoDTO);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		return new ModelAndView("borrarAlumno", "miModelo", miModelo);
 	}
-	
+
 	@RequestMapping(value = "/borrarAlum", method = RequestMethod.POST)
 	public ModelAndView guardarAlumno(@ModelAttribute("alumnoV") AlumnosDTO alumnoV) {
 
-		aDao.AlumnosDTOADAO(alumnoV);
-		
-		consulta.borrarAlumno(alumnoV.getId_alumno());
-		
-		miModelo.put("mensaje", "Alumno Borrado");
-		
-		listaAlumnos=consulta.getTodosAlumnos();		
-		listaAlumnosDTO=aDto.AListaAlumnosDTO(listaAlumnos);		
-		miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
+		try {
+			aDao.AlumnosDTOADAO(alumnoV);
+
+			consulta.borrarAlumno(alumnoV.getId_alumno());
+
+			miModelo.put("mensaje", "Alumno Borrado");
+
+			listaAlumnos = consulta.getTodosAlumnos();
+			listaAlumnosDTO = aDto.AListaAlumnosDTO(listaAlumnos);
+			miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 
 		return new ModelAndView("borrarAlumno", "miModelo", miModelo);
 	}
-	
-	
 
 }

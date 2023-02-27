@@ -44,11 +44,16 @@ public class ControladorPortatilPorIdAlumno {
 
 	@RequestMapping(value = "/navegacionFormularioPortatilPorIdAlumno")
 	public ModelAndView navegacionFormulario(Model modelo) {
-		listaAlumnos = consulta.getTodosAlumnos();
-		listaAlumnosDTO = aDto.AListaAlumnosDTO(listaAlumnos);
-		miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
-		AlumnosDTO alumnoDTO = new AlumnosDTO();
-		modelo.addAttribute("alumnoV", alumnoDTO);
+		try {
+			listaAlumnos = consulta.getTodosAlumnos();
+			listaAlumnosDTO = aDto.AListaAlumnosDTO(listaAlumnos);
+			miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
+			AlumnosDTO alumnoDTO = new AlumnosDTO();
+			modelo.addAttribute("alumnoV", alumnoDTO);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
 		return new ModelAndView("selectPrtPorIdAlm", "miModelo", miModelo);
 
 	}
@@ -56,17 +61,22 @@ public class ControladorPortatilPorIdAlumno {
 	@RequestMapping(value = "/buscarPortatil", method = RequestMethod.POST)
 	public ModelAndView guardarAlumno(@ModelAttribute("alumnoV") AlumnosDTO alumnoV) {
 
-		alumno = consulta.selectUnAlumno(alumnoV.getId_alumno());
+		try {
+			alumno = consulta.selectUnAlumno(alumnoV.getId_alumno());
 
-		portatil = consulta.selectUnPortatil(alumno.getPortatiles().getId_ordenador());
+			portatil = consulta.selectUnPortatil(alumno.getPortatiles().getId_ordenador());
 
-		PortatilesDTO portatilDTO = aDto.APortatilesDTO(portatil.getMd_uuid(), portatil.getMd_date(),
-				portatil.getMarca(), portatil.getModelo(), portatil.getAlumno());
+			PortatilesDTO portatilDTO = aDto.APortatilesDTO(portatil.getMd_uuid(), portatil.getMd_date(),
+					portatil.getMarca(), portatil.getModelo(), portatil.getAlumno());
 
-		if (portatilDTO == null)
-			miModelo.put("mensaje", "No hay portatiles que mostrar");
-		else
-			miModelo.put("mensaje", portatilDTO.toString());
+			if (portatilDTO == null)
+				miModelo.put("mensaje", "No hay portatiles que mostrar");
+			else
+				miModelo.put("mensaje", portatilDTO.toString());
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 
 		return new ModelAndView("selectPrtPorIdAlm", "miModelo", miModelo);
 	}

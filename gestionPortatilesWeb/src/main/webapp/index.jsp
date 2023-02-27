@@ -12,7 +12,7 @@
 	<br>
 	2)<a href="<c:url value="navegacionFormularioPrt"/>"> Insertar portatil</a>	
 	<br>
-	3)<a href="<c:url value="selectAlmConPrt"/>"> Listar alumno con su portatil</a>
+	3)<a href="<c:url value="selectAlmConPrt"/>"> Listar alumnos con su portatil</a>
 	<br>
 	4)<a href="<c:url value="borrarAlumno"/>"> Borrar alumno</a>
 	<br>

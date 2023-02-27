@@ -19,13 +19,13 @@ public class ADtoServicioImpl implements ADtoServicio {
 
 	@Override
 	public PortatilesDTO APortatilesDTO(String modelo, String marca) {
-		PortatilesDTO portatilDTO = new PortatilesDTO( modelo, marca);
+		PortatilesDTO portatilDTO = new PortatilesDTO( marca, modelo);
 		return portatilDTO;
 	}
 
 	@Override
 	public PortatilesDTO APortatilesDTO(String md_uuid, Calendar md_date,String modelo, String marca, Alumnos alumno) {
-		PortatilesDTO portatilDTO = new PortatilesDTO( md_uuid,  md_date,modelo ,  marca,  alumno);
+		PortatilesDTO portatilDTO = new PortatilesDTO( md_uuid,  md_date,marca ,  modelo,  alumno);
 		return portatilDTO;
 	}
 	

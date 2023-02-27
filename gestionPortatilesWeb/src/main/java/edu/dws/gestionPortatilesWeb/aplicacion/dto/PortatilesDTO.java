@@ -94,7 +94,7 @@ public class PortatilesDTO {
 	//ToString
 	@Override
 	public String toString() {
-		return "Portatil " + marca + " modelo " + modelo;
+		return "Portatil: " + marca + " " + modelo;
 	}
 	
 

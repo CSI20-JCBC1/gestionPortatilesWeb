@@ -1,6 +1,8 @@
 package edu.dws.gestionPortatilesWeb.web.controladores;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.logging.Log;
@@ -33,32 +35,68 @@ public class ControladorInsertAlm {
 	Map<String, Object> miModelo = new HashMap<String, Object>();
 	ADaoServicio aDao = new AdaoServicioImpl();
 	ADtoServicio aDto = new ADtoServicioImpl();
-	Portatiles portatil=new Portatiles();
-	AlumnosDTO alumnoDTO= new AlumnosDTO();
-	Alumnos alumno=new Alumnos();
-
+	Portatiles portatil = new Portatiles();
+	AlumnosDTO alumnoDTO = new AlumnosDTO();
+	Alumnos alumno = new Alumnos();
+	List<PortatilesDTO> listaPortatilesDTO = new ArrayList<PortatilesDTO>();
+	List<Portatiles> listaPortatiles = new ArrayList<Portatiles>();
 
 	protected final Log logger = LogFactory.getLog(getClass());
-	
-	 @RequestMapping(value="/navegacionFormularioAlm")
-	    public String navegacionFormulario(Model modelo) {
-	        logger.info("Navegamos al formulario");
-	    	FormAlmDTO alumnoForm=new FormAlmDTO();
-	        modelo.addAttribute("alumnoV", alumnoForm);
-	        return "formularioInsertAlm";
-	    } 
+
+	@RequestMapping(value = "/navegacionFormularioAlm")
+	public ModelAndView navegacionFormulario(Model modelo) {
+		try {
+			logger.info("Navegamos al formulario");
+			FormAlmDTO alumnoForm = new FormAlmDTO();
+			List<PortatilesDTO> listaPortatilesDTO2 = new ArrayList<PortatilesDTO>();
+			listaPortatiles = consulta.getTodosPortatiles();
+			listaPortatilesDTO = aDto.AListaPortatilesDTO(listaPortatiles);
+			for (PortatilesDTO prt : listaPortatilesDTO) {
+				if (prt.getAlumno() == null)
+					listaPortatilesDTO2.add(prt);
+			}
+			miModelo.put("listaPortatilesDTO2", listaPortatilesDTO2);
+			modelo.addAttribute("alumnoV", alumnoForm);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return new ModelAndView("formularioInsertAlm", "miModelo", miModelo);
+	}
 
 	@RequestMapping(value = "/guardarAlumno", method = RequestMethod.POST)
 	public ModelAndView guardarAlumno(@ModelAttribute("alumnoV") FormAlmDTO alumnoV) {
 
-		portatil=consulta.selectUnPortatil(alumnoV.getIdPortatil());	
-		
-		alumnoDTO=aDto.FormAlumnoAAlumnoDTO(alumnoV, portatil);		
-		alumno=aDao.AlumnosDTOADAO(alumnoDTO);
-		
-		consulta.insertarUnAlumno(alumno);
-		
-		miModelo.put("mensaje", "Alumno insertado");
+		try {
+			if (alumnoV.getIdPortatil() != null) {
+
+				List<Alumnos> listaAlumnos = consulta.getTodosAlumnos();
+				Boolean repetido = false;
+				for (Alumnos alm : listaAlumnos) {
+					if (alm.getPortatiles().getId_ordenador() == alumnoV.getIdPortatil()) {
+						repetido = true;
+						break;
+					}
+				}
+				if (!repetido) {
+					portatil = consulta.selectUnPortatil(alumnoV.getIdPortatil());
+
+					alumnoDTO = aDto.FormAlumnoAAlumnoDTO(alumnoV, portatil);
+					alumno = aDao.AlumnosDTOADAO(alumnoDTO);
+
+					consulta.insertarUnAlumno(alumno);
+
+					miModelo.put("mensaje", "Alumno insertado");
+				} else {
+					miModelo.put("mensaje", "El portatil no puede ser el mismo para dos alumnos");
+				}
+			} else
+				miModelo.put("mensaje", "El portatil no puede ser nulo");
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 
 		return new ModelAndView("formularioInsertAlm", "miModelo", miModelo);
 	}

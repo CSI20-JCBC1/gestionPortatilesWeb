@@ -31,18 +31,21 @@ public class ControladorSelectAlmConPrt {
 	ADaoServicio aDao = new AdaoServicioImpl();
 	ADtoServicio aDto = new ADtoServicioImpl();
 	List<AlumnosDTO> listaAlumnosDTO = new ArrayList<AlumnosDTO>();
-	
 
 	@RequestMapping(value = "/selectAlmConPrt")
 	public ModelAndView gestionSolicitud() {
 
-		listaAlumnos=consulta.getTodosAlumnos();
-		
-		listaAlumnosDTO=aDto.AListaAlumnosDTO(listaAlumnos);
-		
-		miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
-		
-		
+		try {
+			listaAlumnos = consulta.getTodosAlumnos();
+
+			listaAlumnosDTO = aDto.AListaAlumnosDTO(listaAlumnos);
+
+			miModelo.put("listaAlumnosDTO", listaAlumnosDTO);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
 		return new ModelAndView("selectAlmConPrt", "miModelo", miModelo);
 	}
 

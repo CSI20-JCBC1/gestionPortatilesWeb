@@ -30,28 +30,41 @@ public class ControladorInsertPrt {
 
 	Map<String, Object> miModelo = new HashMap<String, Object>();
 	ADaoServicio aDao = new AdaoServicioImpl();
-	Portatiles portatil=new Portatiles();
+	Portatiles portatil = new Portatiles();
 
 	protected final Log logger = LogFactory.getLog(getClass());
-	
-	 @RequestMapping(value="/navegacionFormularioPrt")
-	    public String navegacionFormulario(Model modelo) {
-	        logger.info("Navegamos al formulario");
-	        PortatilesDTO portatil = new PortatilesDTO();
-	        modelo.addAttribute("portatilV", portatil);
-	        return "formularioInsertPrt";
-	    } 
+
+	@RequestMapping(value = "/navegacionFormularioPrt")
+	public String navegacionFormulario(Model modelo) {
+		try {
+			logger.info("Navegamos al formulario");
+			PortatilesDTO portatil = new PortatilesDTO();
+			modelo.addAttribute("portatilV", portatil);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return "formularioInsertPrt";
+	}
 
 	@RequestMapping(value = "/guardarPortatil", method = RequestMethod.POST)
 	public ModelAndView guardarPortatil(@ModelAttribute("portatilV") PortatilesDTO portatilV) {
 
-		
-		
-		portatil=aDao.PortatilesDTOADAO(portatilV);
-		
-		consulta.insertarUnPortatil(portatil);
-		
-		miModelo.put("mensaje", "Portatil insertado");
+		try {
+			if (portatilV.getMarca() == null || portatilV.getModelo() == null) {
+				miModelo.put("mensaje", "Los campos no pueden ser nulos");
+			} else {
+				portatil = aDao.PortatilesDTOADAO(portatilV);
+
+				consulta.insertarUnPortatil(portatil);
+
+				miModelo.put("mensaje", "Portatil insertado");
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 
 		return new ModelAndView("formularioInsertPrt", "miModelo", miModelo);
 	}
