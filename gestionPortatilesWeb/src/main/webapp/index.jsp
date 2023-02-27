@@ -9,12 +9,20 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
+	<style type="text/css">
+	body{
+    background-image: url(https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+  background-repeat:no-repeat;
+  background-position: center center;
+}
+	</style>
 </head>
 <body>
     
     <div class="text-center container w-50 mt-3">
-	<h1>APP Gestión Alumnos y portatiles</h1>
-	<h3>Opciones</h3>
+	<h1 class="alert alert-secondary">APP Gestión Alumnos y portatiles</h1>
+	<h3 class="alert alert-secondary">Opciones</h3>
 	<br>
 	<a class="btn btn-primary"href="<c:url value="navegacionFormularioAlm"/>"> 1 Insertar alumno</a>
 	<br>
