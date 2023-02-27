@@ -52,7 +52,7 @@ public class ControladorInsertPrt {
 	public ModelAndView guardarPortatil(@ModelAttribute("portatilV") PortatilesDTO portatilV) {
 
 		try {
-			if (portatilV.getMarca() == null || portatilV.getModelo() == null) {
+			if (portatilV.getMarca().isEmpty() || portatilV.getModelo().isEmpty()) {
 				miModelo.put("mensaje", "Los campos no pueden ser nulos");
 			} else {
 				portatil = aDao.PortatilesDTOADAO(portatilV);
