@@ -27,7 +27,7 @@ import edu.dws.gestionPortatilesWeb.aplicacion.impl.Consultas;
 
 @Controller
 public class ControladorAlumnoPorIdPortatil {
-
+//Comentar código
 	@Autowired
 	Consultas consulta = new Consultas();
 
