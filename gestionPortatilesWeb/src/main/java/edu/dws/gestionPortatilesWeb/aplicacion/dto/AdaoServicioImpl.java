@@ -5,11 +5,11 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
 
 public class AdaoServicioImpl implements ADaoServicio {
 
-	//Convertimos un alumno dto en alumno dao 
+	// Convertimos un alumno dto en alumno dao
 	@Override
 	public Alumnos AlumnosDTOADAO(AlumnosDTO alumnoDTO) {
-		Alumnos alumno=new Alumnos();
-		if(alumnoDTO != null) {
+		Alumnos alumno = new Alumnos();
+		if (alumnoDTO != null) {
 			alumno.setId_alumno(alumnoDTO.getId_alumno());
 			alumno.setMd_uuid(alumnoDTO.getMd_uuid());
 			alumno.setMd_date(alumnoDTO.getMd_date());
@@ -21,14 +21,15 @@ public class AdaoServicioImpl implements ADaoServicio {
 		return alumno;
 	}
 
-	//Convertimos un portatil dto en portatil dao 
+	// Convertimos un portatil dto en portatil dao
 	@Override
 	public Portatiles PortatilesDTOADAO(PortatilesDTO portatilDTO) {
 		Portatiles portatil = new Portatiles();
-		if(portatilDTO != null) {
+		if (portatilDTO != null) {
 			portatil.setMd_uuid(portatilDTO.getMd_uuid());
 			portatil.setMd_date(portatilDTO.getMd_date());
-			portatil.setMarca(portatilDTO.getMarca());;
+			portatil.setMarca(portatilDTO.getMarca());
+			;
 			portatil.setModelo(portatilDTO.getModelo());
 			portatil.setAlumno(portatilDTO.getAlumno());
 		}

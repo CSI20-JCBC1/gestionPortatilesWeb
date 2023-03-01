@@ -22,13 +22,15 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Alumnos;
 
 @Configuration
 @ComponentScan
-@PropertySource("classpath:application.properties") 
-@EnableJpaRepositories("edu.dws.gestionPortatilesWeb.aplicacion.dal")
+@PropertySource("classpath:application.properties") // Esta anotación indica el archivo donde se define las propiedades del contexto
+@EnableJpaRepositories("edu.dws.gestionPortatilesWeb.aplicacion.dal") // Esta anotación escanea el paquete para que se permita usar jpa
 public class AplicacionConfiguracionContexto {
 
+	// Esta inyección nos permite acceder a las propiedades y variables de entorno en tiempo de ejecución
 	@Autowired
 	private Environment env;
 
+	// En este bean se inyectan las propiedades de nuestra base de datos, previamente definidas en el archivo properties
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -39,6 +41,7 @@ public class AplicacionConfiguracionContexto {
 		return dataSource;
 	}
 
+	// En este bean se inyectan las propiedades de hibernatejpa previamente definidas en el archivo properties
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
@@ -62,6 +65,7 @@ public class AplicacionConfiguracionContexto {
 		return emf;
 	}
 
+	// Esta implementación se utiliza para gestionar las transacciones de JPA 
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();

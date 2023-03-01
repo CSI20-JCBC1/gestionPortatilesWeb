@@ -12,6 +12,7 @@ edu\dws\gestionPortatilesWeb\aplicacion\AplicacionConfiguracionContexto.class
 edu\dws\gestionPortatilesWeb\aplicacion\dal\Portatiles.class
 edu\dws\gestionPortatilesWeb\aplicacion\dto\ADtoServicio.class
 edu\dws\gestionPortatilesWeb\aplicacion\dal\Alumnos.class
+edu\dws\gestionPortatilesWeb\aplicacion\impl\ConsultasImpl.class
 edu\dws\gestionPortatilesWeb\aplicacion\dal\PortatilesRepo.class
 edu\dws\gestionPortatilesWeb\web\controladores\ControladorInsertAlm.class
 edu\dws\gestionPortatilesWeb\aplicacion\dto\AlumnosDTO.class
