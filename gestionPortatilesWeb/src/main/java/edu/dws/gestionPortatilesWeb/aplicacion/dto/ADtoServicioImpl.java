@@ -9,6 +9,7 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
 
 public class ADtoServicioImpl implements ADtoServicio {
 
+	//Convertimos un alumno dao en dto
 	@Override
 	public AlumnosDTO AAlumnosDTO(Integer id_alumno,String md_uuid, Calendar md_date, String nombre_alumno, String apellidos_alumno,
 			String num_telefono, Portatiles portatil) {
@@ -17,18 +18,21 @@ public class ADtoServicioImpl implements ADtoServicio {
 		return alumnoDTO;
 	}
 
+	//Convertimos un portatil dao en dto
 	@Override
 	public PortatilesDTO APortatilesDTO(String modelo, String marca) {
 		PortatilesDTO portatilDTO = new PortatilesDTO( marca, modelo);
 		return portatilDTO;
 	}
 
+	//Convertimos un portatil dao en dto 2
 	@Override
 	public PortatilesDTO APortatilesDTO(String md_uuid, Calendar md_date,String modelo, String marca, Alumnos alumno) {
 		PortatilesDTO portatilDTO = new PortatilesDTO( md_uuid,  md_date,marca ,  modelo,  alumno);
 		return portatilDTO;
 	}
 	
+	//Convertimos una lista de portatiles dao en dto
 	@Override
 	public List<PortatilesDTO> AListaPortatilesDTO(List<Portatiles> listaPortatiles) {
 		List<PortatilesDTO> listaPortatilesDTO=new ArrayList<PortatilesDTO>();
@@ -39,7 +43,7 @@ public class ADtoServicioImpl implements ADtoServicio {
 		return listaPortatilesDTO;
 	}
 
-	
+	//Convertimos una lista de alumnos dao en dto
 	@Override
 	public List<AlumnosDTO> AListaAlumnosDTO(List<Alumnos> listaAlumnos) {
 		List<AlumnosDTO> listaAlumnosDTO=new ArrayList<AlumnosDTO>();
@@ -50,6 +54,7 @@ public class ADtoServicioImpl implements ADtoServicio {
 		return listaAlumnosDTO;
 	}
 
+	//Convertimos los datos recogidos del formulario a un alumno DTO
 	@Override
 	public AlumnosDTO FormAlumnoAAlumnoDTO(FormAlmDTO alumnoV, Portatiles portatil) {
 		AlumnosDTO alumnoDTO=new AlumnosDTO(alumnoV.getMd_uuid(), alumnoV.getMd_date(),alumnoV.getNombre(), alumnoV.getApellidos(), alumnoV.getNum_telefono(), portatil);

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository(value="PortatilesRepo")
 public interface PortatilesRepo extends CrudRepository<Portatiles, Integer>{
 
+	//Implementamos el crud de portatiles
 }

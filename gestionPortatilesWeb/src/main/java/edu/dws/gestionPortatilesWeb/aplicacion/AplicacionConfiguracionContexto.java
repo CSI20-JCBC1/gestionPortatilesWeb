@@ -22,7 +22,7 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Alumnos;
 
 @Configuration
 @ComponentScan
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:application.properties") 
 @EnableJpaRepositories("edu.dws.gestionPortatilesWeb.aplicacion.dal")
 public class AplicacionConfiguracionContexto {
 
@@ -57,8 +57,6 @@ public class AplicacionConfiguracionContexto {
 		jpaProperties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 		jpaProperties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 		jpaProperties.put("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
-		// jpaProperties.put("hibernate.bytecode.provider",
-		// contextoPropiedades.getProperty("hibernate.bytecode.provider"));
 		emf.setJpaProperties(jpaProperties);
 
 		return emf;

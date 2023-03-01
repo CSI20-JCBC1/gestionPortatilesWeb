@@ -10,7 +10,7 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
 @Component
 public class AlumnosDTO {
 	
-	//Campos
+		//Atributos
 		private Integer id_alumno;
 		private String md_uuid=UUID.randomUUID().toString();
 		private Calendar md_date=Calendar.getInstance();

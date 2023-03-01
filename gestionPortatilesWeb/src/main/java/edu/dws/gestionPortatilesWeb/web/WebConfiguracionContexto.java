@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 public class WebConfiguracionContexto {
 
+	//Aquí decimos que archivos va a leer y donde se encuentran
 	@Bean
 	public ViewResolver mapeo() {
 		InternalResourceViewResolver irvr = new InternalResourceViewResolver();

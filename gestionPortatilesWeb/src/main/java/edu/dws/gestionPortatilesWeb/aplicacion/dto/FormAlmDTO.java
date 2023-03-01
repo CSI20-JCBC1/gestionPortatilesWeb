@@ -5,6 +5,10 @@ import java.util.UUID;
 
 public class FormAlmDTO {
 
+	//Esto lo utilizaremos para el insert de alumno, para recoger el id de portatil del formulario,
+	//y más tarde convertir en nuestro controlador los datos del formulario en un AlumnoDTO
+	
+	//Atributos
 	private Integer id_alumno;
 	private String md_uuid=UUID.randomUUID().toString();
 	private Calendar md_date=Calendar.getInstance();
@@ -13,6 +17,7 @@ public class FormAlmDTO {
 	private String num_telefono;
 	private Integer idPortatil;
 	
+	//Getters & Setters
 	public Integer getId_alumno() {
 		return id_alumno;
 	}
@@ -56,6 +61,7 @@ public class FormAlmDTO {
 		this.idPortatil = idPortatil;
 	}
 	
+	//Constructores
 	public FormAlmDTO(String md_uuid, Calendar md_date, String nombre, String apellidos, String num_telefono,
 			Integer idPortatil) {
 		super();
@@ -70,6 +76,8 @@ public class FormAlmDTO {
 	public FormAlmDTO() {
 		super();
 	}
+	
+	//ToString
 	@Override
 	public String toString() {
 		return "InsertAlmDTO [id_alumno=" + id_alumno + ", md_uuid=" + md_uuid + ", md_date=" + md_date + ", nombre="

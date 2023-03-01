@@ -5,6 +5,7 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
 
 public class AdaoServicioImpl implements ADaoServicio {
 
+	//Convertimos un alumno dto en alumno dao 
 	@Override
 	public Alumnos AlumnosDTOADAO(AlumnosDTO alumnoDTO) {
 		Alumnos alumno=new Alumnos();
@@ -20,6 +21,7 @@ public class AdaoServicioImpl implements ADaoServicio {
 		return alumno;
 	}
 
+	//Convertimos un portatil dto en portatil dao 
 	@Override
 	public Portatiles PortatilesDTOADAO(PortatilesDTO portatilDTO) {
 		Portatiles portatil = new Portatiles();

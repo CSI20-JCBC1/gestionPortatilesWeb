@@ -7,6 +7,7 @@ edu\dws\gestionPortatilesWeb\aplicacion\dto\ADaoServicio.class
 edu\dws\gestionPortatilesWeb\web\WebConfiguracionContexto.class
 edu\dws\gestionPortatilesWeb\aplicacion\dto\PortatilesDTO.class
 edu\dws\gestionPortatilesWeb\aplicacion\dal\AlumnosRepo.class
+edu\dws\gestionPortatilesWeb\web\controladores\ControladorPortatilPorIdAlumno.class
 edu\dws\gestionPortatilesWeb\aplicacion\AplicacionConfiguracionContexto.class
 edu\dws\gestionPortatilesWeb\aplicacion\dal\Portatiles.class
 edu\dws\gestionPortatilesWeb\aplicacion\dto\ADtoServicio.class
@@ -15,4 +16,6 @@ edu\dws\gestionPortatilesWeb\aplicacion\dal\PortatilesRepo.class
 edu\dws\gestionPortatilesWeb\web\controladores\ControladorInsertAlm.class
 edu\dws\gestionPortatilesWeb\aplicacion\dto\AlumnosDTO.class
 edu\dws\gestionPortatilesWeb\aplicacion\dto\FormAlmDTO.class
+edu\dws\gestionPortatilesWeb\web\controladores\ControladorAlumnoPorIdPortatil.class
+edu\dws\gestionPortatilesWeb\web\controladores\ControladorDeleteAlumno.class
 edu\dws\gestionPortatilesWeb\aplicacion\dto\AdaoServicioImpl.class
