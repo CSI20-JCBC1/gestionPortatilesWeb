@@ -9,6 +9,8 @@ import edu.dws.gestionPortatilesWeb.aplicacion.dal.Alumnos;
 import edu.dws.gestionPortatilesWeb.aplicacion.dal.AlumnosRepo;
 import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
 import edu.dws.gestionPortatilesWeb.aplicacion.dal.PortatilesRepo;
+import edu.dws.gestionPortatilesWeb.aplicacion.dal.Usuario;
+import edu.dws.gestionPortatilesWeb.aplicacion.dal.UsuarioRepo;
 
 @Service(value = "Consultas")
 public class ConsultasImpl implements Consultas {
@@ -17,6 +19,8 @@ public class ConsultasImpl implements Consultas {
 	private AlumnosRepo alm;
 	@Autowired
 	private PortatilesRepo prt;
+	@Autowired
+	private UsuarioRepo usr;
 
 	// Consultas para alumnos
 	// Insert de alumnos
@@ -62,6 +66,19 @@ public class ConsultasImpl implements Consultas {
 	@Override
 	public List<Portatiles> getTodosPortatiles() {
 		return (List<Portatiles>) prt.findAll();
+	}
+
+	//ConsultasAlumno
+	@Override
+	public Usuario selectUnUsuario(Integer id) {
+		Usuario usuario = usr.findById(id).orElse(null);
+		return usuario;
+	}
+
+	@Override
+	public void insertarUnUsuario(Usuario usuario) {
+		usr.save(usuario);
+		
 	}
 
 }

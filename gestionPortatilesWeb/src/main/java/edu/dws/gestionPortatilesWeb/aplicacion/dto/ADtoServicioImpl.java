@@ -61,4 +61,10 @@ public class ADtoServicioImpl implements ADtoServicio {
 		return alumnoDTO;
 	}
 
+	@Override
+	public UsuarioDTO AUsuarioDAO(int id, String username, String email, String password, Integer rol) {
+		UsuarioDTO usuarioDTO=new UsuarioDTO(id,username,email,password,rol);
+		return usuarioDTO;
+	}
+
 }

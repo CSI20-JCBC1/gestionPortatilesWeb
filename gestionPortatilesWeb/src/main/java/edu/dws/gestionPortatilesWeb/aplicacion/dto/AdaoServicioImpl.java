@@ -2,6 +2,8 @@ package edu.dws.gestionPortatilesWeb.aplicacion.dto;
 
 import edu.dws.gestionPortatilesWeb.aplicacion.dal.Alumnos;
 import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
+import edu.dws.gestionPortatilesWeb.aplicacion.dal.Usuario;
+
 
 public class AdaoServicioImpl implements ADaoServicio {
 
@@ -29,11 +31,23 @@ public class AdaoServicioImpl implements ADaoServicio {
 			portatil.setMd_uuid(portatilDTO.getMd_uuid());
 			portatil.setMd_date(portatilDTO.getMd_date());
 			portatil.setMarca(portatilDTO.getMarca());
-			;
 			portatil.setModelo(portatilDTO.getModelo());
 			portatil.setAlumno(portatilDTO.getAlumno());
 		}
 		return portatil;
 	}
+
+	@Override
+	public Usuario UsuarioDTOADAO(UsuarioDTO usuarioDTO) {
+		Usuario usuario=new Usuario();
+		usuario.setId(usuarioDTO.getId());
+		usuario.setUsername(usuarioDTO.getUsername());
+		usuario.setPassword(usuarioDTO.getPassword());
+		usuario.setEmail(usuarioDTO.getEmail());
+		usuario.setRole(usuarioDTO.getRole());
+		return usuario;
+	}
+
+	
 
 }

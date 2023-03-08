@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.dws.gestionPortatilesWeb.aplicacion.dal.Alumnos;
 import edu.dws.gestionPortatilesWeb.aplicacion.dal.Portatiles;
+import edu.dws.gestionPortatilesWeb.aplicacion.dal.Usuario;
 
 public interface Consultas {
 	
@@ -32,5 +33,8 @@ public interface Consultas {
 	//Select todos los portatiles
 	@Transactional
 	public List<Portatiles> getTodosPortatiles();
-
+	
+	//Consultas usuario
+	public Usuario selectUnUsuario(Integer id);
+	public void insertarUnUsuario(Usuario usuario);
 }

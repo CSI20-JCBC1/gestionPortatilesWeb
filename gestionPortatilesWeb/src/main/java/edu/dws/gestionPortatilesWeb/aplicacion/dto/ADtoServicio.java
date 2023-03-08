@@ -20,4 +20,6 @@ public interface ADtoServicio {
 	public PortatilesDTO APortatilesDTO(String md_uuid, Calendar md_date,String modelo, String marca, Alumnos alumno);
 	
 	public List<PortatilesDTO> AListaPortatilesDTO(List<Portatiles> listaPortatiles) ;
+	
+	public UsuarioDTO AUsuarioDAO(int id, String username, String email, String password, Integer rol);
 }
