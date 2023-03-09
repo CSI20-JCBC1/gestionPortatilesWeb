@@ -36,5 +36,6 @@ public interface Consultas {
 	
 	//Consultas usuario
 	public Usuario selectUnUsuario(Integer id);
+	public List<Usuario> getTodosUsuarios();
 	public void insertarUnUsuario(Usuario usuario);
 }

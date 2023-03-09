@@ -19,7 +19,12 @@
 	</style>
 </head>
 <body>
-    
+     <nav>
+        <ul>
+            <li><a class="btn btn-primary"href="<c:url value="navegacionRegistroUsu"/>"> Registro</a></li>
+            <li><a class="btn btn-primary"href="<c:url value="navegacionLoginUsu"/>"> Login</a></li>
+        </ul>
+    </nav>
     <div class="text-center container w-50 mt-3">
 	<h1 class="alert alert-secondary">APP Gestión Alumnos y portatiles</h1>
 	<h3 class="alert alert-secondary">Opciones</h3>

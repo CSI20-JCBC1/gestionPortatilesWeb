@@ -81,4 +81,12 @@ public class ConsultasImpl implements Consultas {
 		
 	}
 
+	@Override
+	public List<Usuario> getTodosUsuarios() {
+		
+		return (List<Usuario>)usr.findAll();
+	}
+
+	
+
 }

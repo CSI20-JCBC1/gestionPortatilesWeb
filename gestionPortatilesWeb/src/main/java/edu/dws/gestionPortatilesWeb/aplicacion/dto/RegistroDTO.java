@@ -1,12 +1,13 @@
 package edu.dws.gestionPortatilesWeb.aplicacion.dto;
 
-public class UsuarioDTO {
+public class RegistroDTO {
 
 	private Integer id;
 	private String username;
     private String email;
     private String password;
-    private Integer role;
+    private String password2;
+    private Integer role=1;
     
     public Integer getId() {
 		return id;
@@ -32,6 +33,12 @@ public class UsuarioDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getPassword2() {
+		return password2;
+	}
+	public void setPassword2(String password2) {
+		this.password2 = password2;
+	}
 	public Integer getRole() {
 		return role;
 	}
@@ -40,26 +47,16 @@ public class UsuarioDTO {
 	}
 	
 	
-	public UsuarioDTO(Integer id,String username, String email, String password, Integer role) {
-		super();
-		this.id=id;
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		this.role = role;
-		this.id = id;
-	}
-	
-	public UsuarioDTO(String username, String email, String password, Integer role) {
+	public RegistroDTO(String username, String email, String password, String password2, Integer role) {
 		super();
 		this.username = username;
 		this.email = email;
 		this.password = password;
-		this.role = role;
-
+		this.password2 = password2;
+		this.role = 1;
 	}
 	
-	public UsuarioDTO() {
+	public RegistroDTO() {
 		super();
 	}
 	

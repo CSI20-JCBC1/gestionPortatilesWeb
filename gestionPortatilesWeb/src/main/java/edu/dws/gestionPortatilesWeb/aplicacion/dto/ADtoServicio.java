@@ -21,5 +21,5 @@ public interface ADtoServicio {
 	
 	public List<PortatilesDTO> AListaPortatilesDTO(List<Portatiles> listaPortatiles) ;
 	
-	public UsuarioDTO AUsuarioDAO(int id, String username, String email, String password, Integer rol);
+	public UsuarioDTO AUsuarioDAO(String username, String email, String password, Integer rol);
 }

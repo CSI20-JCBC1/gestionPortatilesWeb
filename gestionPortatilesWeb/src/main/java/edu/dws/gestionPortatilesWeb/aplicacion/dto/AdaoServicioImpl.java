@@ -40,7 +40,6 @@ public class AdaoServicioImpl implements ADaoServicio {
 	@Override
 	public Usuario UsuarioDTOADAO(UsuarioDTO usuarioDTO) {
 		Usuario usuario=new Usuario();
-		usuario.setId(usuarioDTO.getId());
 		usuario.setUsername(usuarioDTO.getUsername());
 		usuario.setPassword(usuarioDTO.getPassword());
 		usuario.setEmail(usuarioDTO.getEmail());

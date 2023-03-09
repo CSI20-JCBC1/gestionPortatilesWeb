@@ -62,8 +62,8 @@ public class ADtoServicioImpl implements ADtoServicio {
 	}
 
 	@Override
-	public UsuarioDTO AUsuarioDAO(int id, String username, String email, String password, Integer rol) {
-		UsuarioDTO usuarioDTO=new UsuarioDTO(id,username,email,password,rol);
+	public UsuarioDTO AUsuarioDAO(String username, String email, String password, Integer rol) {
+		UsuarioDTO usuarioDTO=new UsuarioDTO(username,email,password,rol);
 		return usuarioDTO;
 	}
 
